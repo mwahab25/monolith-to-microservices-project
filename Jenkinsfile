@@ -17,6 +17,17 @@ pipeline {
                 }
             }
         }
+        
+         stage('login'){
+            steps {
+                 script{
+                    withCredentials([string(credentialsId: 'docker-mwahab', variable: 'dockerhubpwd')]) {
+                        echo 'docker login -u mwahabsc25 -p ${dockerhubpwd}'
+                    }                
+                }
+            }
+        }
+
         stage('tag'){
             steps {
                  script{
