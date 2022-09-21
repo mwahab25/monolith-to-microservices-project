@@ -23,6 +23,8 @@ pipeline {
                     withCredentials([string(credentialsId: 'docker-mwahab', variable: 'dockerhubpwd')]) {
                         bat "docker login -u mwahabsc25 -p ${dockerhubpwd}"
                     }        
+                    bat "docker tag udagram-reverseproxy mwahabsc25/udagram-reverseproxy:v1"
+                    bat "docker push mwahabsc25/udagram-reverseproxy:v1"
                 }
             }
         }
