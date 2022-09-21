@@ -12,7 +12,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 script{
-                 bash 'docker build -t udagram-reverseproxy ./udagram-reverseproxy'
+                 sh("docker build -t udagram-reverseproxy ./udagram-reverseproxy")
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                  script{
                     withCredentials([string(credentialsId: 'docker-mwahab', variable: 'dockerhubpwd')]) {
-                        bash 'docker login -u mwahabsc25 -p ${dockerhubpwd}'
+                        sh("docker login -u mwahabsc25 -p ${dockerhubpwd}")
                     }        
                 }
             }
