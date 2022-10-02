@@ -20,7 +20,7 @@ spec:
         service: frontend
     spec:
       containers:
-      - image: mwahabsc25/udagram-frontend:latest
+      - image: mwahabsc25/udagram-frontend:v3
         name: frontend
         imagePullPolicy: Always
         resources:
